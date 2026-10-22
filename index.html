@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ThankYou Admin | Email Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="loginView" class="login-screen">
+    <div class="login-shell">
+      <aside class="login-brand-panel">
+        <div class="login-brand">
+          <div class="login-brand-icon" aria-hidden="true">✉</div>
+          <div><strong>ThankYou <span>Admin</span></strong><small>Email Management System</small></div>
+        </div>
+        <div class="login-brand-copy">
+          <span class="login-kicker">ADMINISTRATOR WORKSPACE</span>
+          <h2>Send messages.<br>Make an impact.</h2>
+          <p>Manage recipients, prepare thank-you campaigns, and keep your community informed — all in one place.</p>
+        </div>
+        <div class="login-illustration" aria-hidden="true">
+          <div class="mail-glow"></div>
+          <div class="mail-card"><span>✉</span><i></i><i></i><i></i></div>
+          <div class="mail-send">➤</div>
+        </div>
+        <div class="login-benefits">
+          <div><span>♧</span><b>Manage recipients</b></div>
+          <div><span>✉</span><b>Create campaigns</b></div>
+          <div><span>▥</span><b>Track activity</b></div>
+          <div><span>✓</span><b>Admin control</b></div>
+        </div>
+        <p class="login-footer-note">A simple workspace for thoughtful communication.</p>
+      </aside>
+      <div class="login-form-panel">
+        <form id="loginForm" class="login-card" autocomplete="on">
+          <div class="login-form-icon" aria-hidden="true">✉</div>
+          <p class="eyebrow">WELCOME BACK</p>
+          <h1>Administrator Login</h1>
+          <p class="login-subtitle">Sign in to your account to continue.</p>
+          <label for="loginEmail">Email address</label>
+          <div class="login-input-wrap"><span aria-hidden="true">♙</span><input id="loginEmail" name="email" type="email" placeholder="Enter your email" autocomplete="username" required></div>
+          <label for="loginPassword">Password</label>
+          <div class="login-input-wrap"><span aria-hidden="true">▣</span><input id="loginPassword" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required><button class="password-toggle" id="togglePassword" type="button" aria-label="Show password" aria-pressed="false">Show</button></div>
+          <div class="login-options"><label class="remember-option"><input id="loginRemember" type="checkbox"> <span>Remember me</span></label><button id="forgotPasswordBtn" type="button" class="text-link">Forgot password?</button></div>
+          <p id="loginError" class="error hidden" role="alert">The email address or password is incorrect. Please try again.</p>
+          <button class="btn primary full login-submit" type="submit">Sign in <span aria-hidden="true">→</span></button>
+          <div class="login-divider"><span>DEMO ACCOUNT</span></div>
+          <div class="demo-note"><span><b>Email</b> admin@example.com</span><span><b>Password</b> admin123</span><small>Demo credentials are for local testing only.</small></div>
+          <p class="login-security-note"><span aria-hidden="true">▣</span> Authorized administrators only</p>
+        </form>
+      </div>
+    </div>
+  </section>
+  <div id="appView" class="app hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-mark small">✉</div><div><b>ThankYou Admin</b><span>Email Management System</span></div></div>
+      <div class="nav-label">WORKSPACE</div>
+      <button class="nav-item active" data-view="dashboard"><span>▦</span>Dashboard</button>
+      <button class="nav-item" data-view="recipients"><span>♧</span>Recipients <span class="nav-count" id="navRecipientCount">22</span></button>
+      <button class="nav-item" id="importNavBtn" type="button"><span>⇧</span>Import Recipients</button>
+      <button class="nav-item" data-view="compose"><span>✎</span>Compose Campaign</button>
+      <button class="nav-item" data-view="campaigns"><span>▤</span>Campaigns</button>
+      <button class="nav-item" data-view="logs"><span>☷</span>Email Logs</button>
+      <div class="sidebar-bottom"><div class="user-mini"><div class="avatar">A</div><div><b>Administrator</b><span>Admin account</span></div></div><button id="logoutBtn" class="logout">↪ Log out</button></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><button id="menuBtn" class="menu-btn" aria-label="Open menu">☰</button><div><h2 id="pageTitle">Dashboard Overview</h2><p id="pageSubtitle">Monitor your recipients and email campaigns.</p></div><div class="top-user"><div class="avatar">A</div><div><b>Administrator</b><span>Admin</span></div></div></header>
+      <section id="dashboardView" class="view content">
+        <div class="welcome-row"><div><p class="eyebrow">OVERVIEW</p><h1>Welcome back, Admin</h1><p class="muted">Here is what's happening with your email campaigns.</p></div><button class="btn primary" data-go="compose">＋ New campaign</button></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>Total Recipients</span><span class="stat-icon">♧</span></div><strong id="statRecipients">22</strong><small>Contacts in your list</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Subscribed</span><span class="stat-icon green">✓</span></div><strong id="statSubscribed">22</strong><small>Eligible contacts</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Campaigns</span><span class="stat-icon">✉</span></div><strong id="statCampaigns">1</strong><small>Created campaigns</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Pending Emails</span><span class="stat-icon amber">◷</span></div><strong id="statPending">0</strong><small>Queued for sending</small></article>
+        </div>
+        <div class="panel"><div class="panel-heading"><div><h2>Recent Email Campaigns</h2><p class="muted">Your latest campaign activity</p></div><button class="btn secondary" data-go="campaigns">View history</button></div><div id="recentCampaigns" class="campaign-list"></div></div>
+        <div class="note-bar"><span>ⓘ</span><p>This demo saves data in this browser. Connect a PHP/MySQL backend and an email service to send real emails.</p></div>
+      </section>
+      <section id="recipientsView" class="view content hidden">
+        <div class="section-head"><div><h1>Recipients</h1><p class="muted">Manage your email contacts.</p></div><div class="button-row"><label class="btn secondary upload-btn">Import CSV<input id="csvInput" type="file" accept=".csv,text/csv" hidden></label><button id="addRecipientBtn" class="btn primary">＋ Add recipient</button></div></div>
+        <div class="panel"><div class="toolbar"><input id="recipientSearch" class="search" placeholder="Search name or email..."><span id="recipientCountLabel" class="muted"></span></div><div class="table-wrap"><table><thead><tr><th>Name</th><th>Email address</th><th>Status</th><th class="right">Action</th></tr></thead><tbody id="recipientRows"></tbody></table></div><div id="emptyRecipients" class="empty hidden">No recipients found.</div></div>
+      </section>
+      <section id="composeView" class="view content hidden">
+        <div class="section-head"><div><h1>Compose Campaign</h1><p class="muted">Create a message and choose who should receive it.</p></div></div>
+        <form id="campaignForm" class="panel compose-panel">
+          <div class="form-grid"><div class="field"><label for="campaignName">Campaign name</label><input id="campaignName" placeholder="e.g. Thank You for Participating!" required></div><div class="field"><label for="campaignSubject">Email subject</label><input id="campaignSubject" placeholder="Enter email subject" required></div></div>
+          <div class="field"><label for="campaignMessage">Message</label><textarea id="campaignMessage" rows="7" placeholder="Example: Hi {{name}}, thank you for participating!" required></textarea><small class="field-hint">Personalize each email with <code>{{name}}</code> to insert the recipient’s name.</small></div>
+          <div class="recipient-picker"><div><b>Select recipients</b><p class="muted">Only subscribed contacts can be selected.</p></div><label class="check-label"><input type="checkbox" id="selectAllRecipients" checked> Select all subscribed</label></div>
+          <div id="composeRecipientList" class="compose-recipients"></div>
+          <div class="compose-footer"><span id="selectedCount" class="muted">22 recipients selected</span><div class="button-row"><button type="button" id="previewBtn" class="btn secondary">Preview message</button><button type="button" id="saveDraftBtn" class="btn secondary">Save draft</button><button type="submit" class="btn primary">Queue campaign</button></div></div>
+        </form>
+      </section>
+      <section id="logsView" class="view content hidden">
+        <div class="section-head"><div><h1>Email Logs</h1><p class="muted">Monitor the current status of each recipient in queued campaigns.</p></div></div>
+        <div class="panel"><div class="toolbar"><input id="logSearch" class="search" placeholder="Search recipient, email, or campaign..."><span id="logCountLabel" class="muted"></span></div><div class="table-wrap"><table><thead><tr><th>Recipient</th><th>Email address</th><th>Campaign</th><th>Status</th><th>Updated</th></tr></thead><tbody id="emailLogRows"></tbody></table></div><div id="emptyLogs" class="empty hidden">No email activity yet. Queue a campaign to see its recipients here.</div><p class="table-note">This prototype records queue activity only. Sent, delivered, and failed statuses require a connected email provider.</p></div>
+      </section>
+      <section id="campaignsView" class="view content hidden">
+        <div class="section-head"><div><h1>Campaign History</h1><p class="muted">Review drafts and queued campaign results.</p></div><button class="btn primary" data-go="compose">＋ New campaign</button></div>
+        <div class="panel"><div class="toolbar"><input id="campaignSearch" class="search" placeholder="Search campaigns..."></div><div id="campaignHistory" class="history-list"></div><div id="emptyCampaigns" class="empty hidden">No campaigns yet. Create your first campaign.</div></div>
+      </section>
+    </main>
+  </div>
+  <dialog id="previewDialog" class="modal"><form method="dialog"><button class="modal-close" aria-label="Close">×</button></form><p class="eyebrow">EMAIL PREVIEW</p><h2 id="previewSubject">Subject</h2><p id="previewTo" class="muted"></p><div id="previewBody" class="preview-body"></div><button id="closePreview" class="btn primary full">Close preview</button></dialog>
+  <dialog id="recipientDialog" class="modal"><form id="recipientForm"><button type="button" id="closeRecipientDialog" class="modal-close" aria-label="Close">×</button><p class="eyebrow">CONTACT DETAILS</p><h2 id="recipientDialogTitle">Add recipient</h2><input type="hidden" id="recipientId"><div class="field"><label for="recipientName">Full name</label><input id="recipientName" required></div><div class="field"><label for="recipientEmail">Email address</label><input id="recipientEmail" type="email" required></div><div class="field"><label for="recipientStatus">Subscription status</label><select id="recipientStatus"><option value="subscribed">Subscribed</option><option value="unsubscribed">Unsubscribed</option></select></div><div class="button-row modal-actions"><button type="button" id="cancelRecipient" class="btn secondary">Cancel</button><button type="submit" class="btn primary">Save recipient</button></div></form></dialog>
+  <dialog id="confirmDialog" class="modal"><p class="eyebrow">CONFIRMATION</p><h2 id="confirmTitle">Queue campaign?</h2><p id="confirmText" class="muted"></p><div class="button-row modal-actions"><button id="confirmCancel" class="btn secondary">Cancel</button><button id="confirmAction" class="btn primary">Confirm</button></div></dialog>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body></html>
